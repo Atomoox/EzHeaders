@@ -2,7 +2,8 @@
 	"name": "ezheaders",
 	"displayName": "EzHeaders",
 	"description": "Formatting chrome headers to Javascript object entries",
-	"publisher": "Atomoox",
+	"publisher": "Atomox",
+	"repository": "https://github.com/Atomoox/EzHeaders",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.58.0"

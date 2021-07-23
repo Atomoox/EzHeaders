@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.commands.registerCommand('headers.format', () => {
+	let disposable = vscode.commands.registerCommand('ezheaders.format', () => {
 		const editor = vscode.window.activeTextEditor;
         if (editor) {
             const document = editor.document;
@@ -17,6 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
 							const value = line.split(`${key}:`)[1].trim();
 							headers.push(`'${key}': '${value}'`);
 						});
+						console.log(headers);
 						editBuilder.replace(range, headers.join(',\n'));
 					}catch (ex) {
 						vscode.window.showErrorMessage(`Couldn't format headers (${ex.message})`);
