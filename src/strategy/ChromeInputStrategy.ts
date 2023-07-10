@@ -1,6 +1,6 @@
 import { getFormatQuote } from "../utils";
 
-import { AbstractInputStrategy } from "../models/AbstractInputStreatgy";
+import { AbstractInputStrategy } from "../models/AbstractInputStrategy";
 
 import { IHttpHeaders } from "../types/IHttpHeaders";
 
