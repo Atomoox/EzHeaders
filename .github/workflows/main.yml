@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: All the other dependencies
-        run: npm install @types/node --save-dev
+      - name: Fix webgl-ext typing bug
+        run: npm remove @types/webgl-ext
 
       - name: Run tests
         run: npm test

@@ -55,7 +55,6 @@
 	},
 	"dependencies": {
 		"@types/offscreencanvas": "^2019.7.0",
-		"@types/webgl-ext": "0.0.33",
 		"vsce": "^1.95.1"
 	}
 }
