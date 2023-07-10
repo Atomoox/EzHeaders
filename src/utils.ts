@@ -3,10 +3,26 @@ import { CharlesInputStrategy } from "./strategy/CharlesInputStrategy";
 import { ChromeInputStrategy } from "./strategy/ChromeInputStrategy";
 
 import { EInputSources } from "./types/EInputSources";
+import { IHttpHeaders } from "./types/IHttpHeaders";
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const isSpecialChar = (str: string) => /[^a-zA-Z0-9_]/.test(str);
+
+const parseHeaders = (input: string): IHttpHeaders | null => {
+    const inputStrategy: Array<any> = [
+        ChromeInputStrategy,
+        CharlesInputStrategy
+    ];
+
+    for (const strategy of inputStrategy) {
+        if (strategy.recognizeInput(input)) {
+            return new strategy(input).parseValues();
+        }
+    }
+
+    return null;
+};
 
 const getFormatQuote = (input: string, isHeaderName: boolean = false): string => {
     const quotesTypes = [
@@ -25,5 +41,6 @@ const getFormatQuote = (input: string, isHeaderName: boolean = false): string =>
 export { 
     capitalize,
     getFormatQuote,
-    isSpecialChar
+    isSpecialChar,
+    parseHeaders
  };
